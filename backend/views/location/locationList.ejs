@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Locations</title>
+  <link rel='stylesheet' href='/stylesheets/listStyle.css' />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Locations List</h1>
+    <% if(items.length>0) { %>
+      <table class="table_details">
+        <thead>
+          <tr>
+            <th hidden>#</th>
+            <th hidden>Id</th>
+            <th>Address</th>
+            <th hidden>Max Capacity</th>
+            <th hidden>Limit Capacity (%)</th>
+            <th>Limited Capacity</th>
+            <th hidden>Detalhes</th>
+            <th hidden>Editar</th>
+            <th hidden>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% for(var i=0; i<items.length;i++) { %>
+            <tr>
+
+              <td hidden>
+                <%=i%>
+              </td>
+              <td hidden>
+                <%=items[i]._id%></a>
+              </td>
+              <td>
+                <%= items[i].place%></a>
+              </td>
+              <td hidden>
+                <%= items[i].max%></a>
+              </td>
+              <td hidden>
+                <%= items[i].limit%>%</a>
+              </td>
+              <td>
+                <%= Math.floor((items[i].max * items[i].limit)/100) %>
+              </td>
+              <td><a class="showDetail" href="/locations/show/<%= items[i]._id%> "> Show Details </td>
+              <!--<td><a href="/locations/edit/<%= items[i]._id%> "> Edit </a></td>-->
+              <!--<td><a href="/locations/delete/<%= items[i]._id%> "> Delete </a></td>-->
+              <% } %>
+        </tbody>
+      </table>
+
+      <% } else { %>
+        <div>No Locations found.</div>
+        <% } %>
+  </div>
+  <div>
+    <button><a href="/"> Back </a></button>
+  </div>
+  <!--<h3><a href="/events/create">Create new Event</a></h3> Comentei porque so se deve poder adicionar eventos os promotores acho eu-->
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Location</title>
+  <link rel="stylesheet" href="/stylesheets/detailStyle.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Location Details</h1>
+    <table class="table_details">
+      <tbody>
+
+        <tr>
+          <td>Address</td>
+          <td>:</td>
+          <td>
+            <%= item.place%>
+          </td>
+        </tr>
+        <tr>
+          <td>Max Capacity</td>
+          <td>:</td>
+          <td>
+            <%= item.max %>
+          </td>
+        </tr>
+        <tr hidden>
+          <td>Limit Capacity (%)</td>
+          <td>:</td>
+          <td>
+            <%= item.limit %>
+          </td>
+        </tr>
+        <tr>
+          <td>Limited Capacity</td>
+          <td>:</td>
+          <td>
+            <%= Math.floor((item.max * item.limit)/100) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3><a href="/locations">Show All Locations</a></h3>
+</body>
+
+</html>

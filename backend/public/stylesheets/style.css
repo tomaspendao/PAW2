@@ -1,0 +1,40 @@
+body {
+  margin: 5%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
+  text-align: center;
+}
+
+h1{
+  margin-inline: 40px;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 25px;
+  color: black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Error {
+  color: red;
+  text-align: center;
+}
+
+button{
+  margin-top: 10px;
+}
+
+.form_create{
+  margin: auto;
+  margin-bottom: 10px;
+  padding: auto;
+  width: fit-content;
+  justify-content: center;
+  align-content: left;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}

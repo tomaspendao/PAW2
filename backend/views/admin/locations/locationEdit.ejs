@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Location</title>
+  <link rel="stylesheet" href="/stylesheets/editStyle.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Location Editing</h1>
+    <form action="/admins/locations/edit/<%=item._id%>" method="post">
+      <table class="table_details">
+        <tbody>
+          <tr hidden>
+            <td>Id</td>
+            <td>:</td>
+            <!-- Como o id não pode ser alterado usamos o input hidden para o enviar como campo do formulário. -->
+            <td>
+              <input type="hidden" name="_id" id="_id" value="<%= item._id %>" />
+              <%= item.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td>
+              <input type="text" name="place" id="place" value="<%= item.place %>" />
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>Max Capacity</td>
+            <td>:</td>
+            <td>
+              <input type="number" name="max" id="max" value="<%= item.max %>" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>Limit Capacity</td>
+            <td>:</td>
+            <td>
+              <input type="number" name="limit" id="limit" min="0" max="100" value="<%= item.limit %>" />
+            </td>
+          </tr>
+          <tr>
+            <td id="button" colspan="3"><button type="submit">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <h3><a class="show" href="/admins/locations">Show All Locations</a></h3>
+</body>
+
+</html>

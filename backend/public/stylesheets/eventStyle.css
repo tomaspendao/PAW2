@@ -1,0 +1,22 @@
+body{
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+th, td{
+    width: 20px;
+    text-align: center;
+    padding-inline: 20px;
+}
+
+.table_details{
+    white-space: nowrap;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: auto;
+    width: fit-content;
+    display: block;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}

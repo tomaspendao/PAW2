@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Promoters</title>
+  <link rel='stylesheet' href='/stylesheets/listStyle.css' />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Promoters List</h1>
+    <% if(items.length>0) { %>
+      <table class="table_details">
+        <thead>
+          <tr>
+            <th hidden>#</th>
+            <th hidden>Id</th>
+            <th>Name</th>
+            <th hidden>E-mail</th>
+            <!--<th></th>
+              <th></th>
+              <th></th>-->
+          </tr>
+        </thead>
+        <tbody>
+
+          <% for(var i=0; i<items.length;i++) { %>
+            <tr>
+              <td hidden>
+                <%=i%>
+              </td>
+              <td hidden>
+                <%=items[i]._id%></a>
+              </td>
+              <td>
+                <%= items[i].name%></a>
+              </td>
+              <td hidden>
+                <%= items[i].email%></a>
+              </td>
+              <td><a class="showDetail" href="/promoters/show/<%= items[i]._id%> "> Show Details </td>
+              <!--<td><a href="/promoters/edit/<%= items[i]._id%> "> Edit </a></td>-->
+              <!--<td><a href="/promoters/delete/<%= items[i]._id%> "> Delete </a></td>-->
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <div>No Promoters.</div>
+        <% } %>
+  </div>
+  <!--<h3><a href="/promoters/create">Create new Promoter</a></h3>-->
+  <!--<h3><a href="/events/create">Create new Event</a></h3>-->
+  <!--<h3><a href="/locations/create">Create new Location</a></h3>-->
+  <button><a href="/"> Back </a></button>
+</body>
+
+</html>

@@ -1,0 +1,1037 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Swagger demo for the item REST api TP.",
+      "version": "1.0.0",
+      "title": "Swagger Event API",
+      "contact1": {
+        "email": "8170308@estg.ipp.pt"
+      },
+      "contact2": {
+        "email": "8170110@estg.ipp.pt"
+      },
+      "contact3": {
+        "email": "8180003@estg.ipp.pt"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Event",
+        "description": "Representation of our Events"
+      },
+      {
+        "name": "Location",
+        "description": "Representation of our Locations"
+      },
+      {
+        "name": "User",
+        "description": "Operations about Users"
+      },
+      {
+        "name": "Promoter",
+        "description": "Operations about Promoters"
+      },
+      {
+        "name": "Admin",
+        "description": "Operations about Admins"
+      }
+    ],
+    "schemes": ["http"],
+    "paths": {
+      "/events/": {
+        "get": {
+          "tags": ["Event"],
+          "summary": "Gets all events",
+          "description": "Gets all events in the database",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Event List",
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/events/show/{id}": {
+        "get": {
+          "tags": ["Event"],
+          "summary": "Shows a specific event",
+          "description": "Shows a specific event",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "description": "Event id that needs to be shown",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Event Showned",
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            },
+            "405": {
+              "description": "Invalid Id input"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/events/create": {
+        "post": {
+          "tags": ["Event"],
+          "summary": "Adds a Event",
+          "description": "Adds a event",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Event object that needs to be added to the database",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Event Added",
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            },
+            "400": {
+              "description": "Invalid Event supplied"
+            },
+            "405": {
+              "description": "Validation exception"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+  
+      "/events/edit/{id}": {
+        "put": {
+          "tags": ["Event"],
+          "summary": "Edit event",
+          "description": "Edits an existing event by id",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of event to edit",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "event edited",
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Event not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/events/delete/{id}": {
+        "delete": {
+          "tags": ["Event"],
+          "summary": "Deletes an Event",
+          "description": "Deletes an Event from the database",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Event id to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Event deleted",
+              "schema": {
+                "$ref": "#/definitions/Events"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Event not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/locations/": {
+        "get": {
+          "tags": ["Location"],
+          "summary": "Gets all locations",
+          "description": "Gets all locations in the database",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "location List",
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/locations/show/{id}": {
+        "get": {
+          "tags": ["Location"],
+          "summary": "Shows a specific location",
+          "description": "Shows a specific location",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "description": "location id that needs to be shown",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "location Showned",
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            },
+            "405": {
+              "description": "Invalid Id input"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/locations/create": {
+        "post": {
+          "tags": ["Location"],
+          "summary": "Adds a Location",
+          "description": "Adds a Location",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "location object that needs to be added to the database",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "location Added",
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            },
+            "400": {
+              "description": "Invalid location supplied"
+            },
+            "405": {
+              "description": "Validation exception"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+  
+      "/locations/edit/{id}": {
+        "put": {
+          "tags": ["Location"],
+          "summary": "Edit location",
+          "description": "Edits an existing location by id",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of location to edit",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "location edited",
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "location not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/locations/delete/{id}": {
+        "delete": {
+          "tags": ["Location"],
+          "summary": "Deletes an location",
+          "description": "Deletes an location from the database",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "location id to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "location deleted",
+              "schema": {
+                "$ref": "#/definitions/Location"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "location not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/users/": {
+        "get": {
+          "tags": ["User"],
+          "summary": "Gets all users",
+          "description": "Gets all users in the database",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "users List",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/users/show/{id}": {
+        "get": {
+          "tags": ["User"],
+          "summary": "Shows a specific user",
+          "description": "Shows a specific user",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "description": "user id that needs to be shown",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "user Showned",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "405": {
+              "description": "Invalid Id input"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+  
+      "/users/edit/{id}": {
+        "put": {
+          "tags": ["User"],
+          "summary": "Edit user",
+          "description": "Edits an existing user by id",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of user to edit",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "user edited",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "user not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/users/delete/{id}": {
+        "delete": {
+          "tags": ["User"],
+          "summary": "Deletes an user",
+          "description": "Deletes an user from the database",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "user id to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "user deleted",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "users not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/promoters/": {
+        "get": {
+          "tags": ["Promoter"],
+          "summary": "Gets all promoters",
+          "description": "Gets all promoters in the database",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "promoters List",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/promoters/show/{id}": {
+        "get": {
+          "tags": ["Promoter"],
+          "summary": "Shows a specific promoter",
+          "description": "Shows a specific promoter",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "description": "promoter id that needs to be shown",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "promoter Showned",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "405": {
+              "description": "Invalid Id input"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+  
+      "/promoters/edit/{id}": {
+        "put": {
+          "tags": ["Promoter"],
+          "summary": "Edit promoter",
+          "description": "Edits an existing promoter by id",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of promoter to edit",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "promoter edited",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "promoter not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/promoters/delete/{id}": {
+        "delete": {
+          "tags": ["Promoter"],
+          "summary": "Deletes an promoter",
+          "description": "Deletes an promoter from the database",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "promoter id to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "promoter deleted",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "promoter not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/admins/": {
+        "get": {
+          "tags": ["Admin"],
+          "summary": "Gets all admins",
+          "description": "Gets all admins in the database",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "admins List",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/admins/show/{id}": {
+        "get": {
+          "tags": ["Admin"],
+          "summary": "Shows a specific admin",
+          "description": "Shows a specific admin",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "description": "admin id that needs to be shown",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "admin Showned",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "405": {
+              "description": "Invalid Id input"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+  
+      "/admins/edit/{id}": {
+        "put": {
+          "tags": ["Admin"],
+          "summary": "Edit admin",
+          "description": "Edits an existing admin by id",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of admin to edit",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "admin edited",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "admin not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/admins/delete/{id}": {
+        "delete": {
+          "tags": ["Admin"],
+          "summary": "Deletes an admin",
+          "description": "Deletes an admin from the database",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "admin id to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "admin deleted",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "admin not found"
+            }
+          },
+          "security": [
+            {
+              "item_jwt_auth": []
+            }
+          ]
+        }
+      },
+      "/auth/register-user": {
+        "post": {
+          "tags": ["User"],
+          "summary": "Create user",
+          "description": "Creates a user anyone can do it.",
+          "operationId": "createUser",
+          "produces": ["application/xml", "application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/auth/register-promoter": {
+        "post": {
+          "tags": ["Promoter"],
+          "summary": "Create promoter",
+          "description": "Creates a promoter only a Admin can do",
+          "operationId": "createPromoter",
+          "produces": ["application/xml", "application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User",
+                "role": "PROMOTER"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/auth/register-admin": {
+        "post": {
+          "tags": ["Admin"],
+          "summary": "Create admin",
+          "description": "Creates a admin only a Admin can do.",
+          "operationId": "createAdmin",
+          "produces": ["application/xml", "application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/auth/login": {
+        "post": {
+          "tags": ["User", "Admin", "Promoter"],
+          "summary": "Logs user into the system",
+          "description": "",
+          "operationId": "loginUser",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "string"
+              }
+            },
+            "400": {
+              "description": "Invalid username/password supplied"
+            }
+          }
+        }
+      },
+      "/buy-ticket/{id}}": {
+        "post": {
+          "tags": ["Event"],
+          "summary": "Permits the current user to buy a ticket for a specific event",
+          "description": "",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created ticket object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Ticket"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "string"
+              }
+            },
+            "400": {
+              "description": "Invalid user"
+            }
+          }
+        }
+      },
+      "/tickets": {
+        "post": {
+          "tags": ["Ticket"],
+          "summary": "Shows the tickets of an User",
+          "description": "",
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Ticket"
+              }
+            },
+            "400": {
+              "description": "Invalid user"
+            }
+          }
+        }
+      }
+    },
+    "securityDefinitions": {
+      "item_jwt_auth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-access-token"
+      }
+    },
+    "definitions": {
+      "Event": {
+        "type": "object",
+        "required": ["name", "description", "location","price"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "example": "Even1o"
+          },
+          "location": {
+            "type": "object",
+            "$ref": "#/definitions/Location"
+          },
+          "description": {
+            "type": "string",
+            "example": "Evento B0m"
+          },
+          "price": {
+            "type": "double",
+            "example": "12.65€"
+          }
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "required": ["userId", "eventId", "file"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "file": {
+            "type": "file",
+            "example": "testeCovid.pdf"
+          }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "required": ["place", "max", "limit"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "place": {
+            "type": "string",
+            "example": "Rua do Curral"
+          },
+          "max": {
+            "type": "number",
+            "example": 10000
+          },
+          "limit": {
+            "type": "number",
+            "example": "50",
+            "description": "% between 0 and 100"
+          }
+        }
+      },
+      "Events": {
+        "type": "array",
+        "$ref": "#/definitions/Event"
+      },
+      "User": {
+        "type": "object",
+        "required": ["email", "password", "name", "role"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "example": "user"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["USER", "PROMOTER", "ADMIN"]
+          }
+        }
+      }
+    }
+  }
+  

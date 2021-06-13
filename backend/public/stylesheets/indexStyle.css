@@ -1,0 +1,12 @@
+body{
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+h1{
+    margin-inline: 40px;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 25px;
+  }

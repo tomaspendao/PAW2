@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event</title>
+  <link rel="stylesheet" href="/stylesheets/detailStyle.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Event Details</h1>
+    <td><img src="<%= item.poster%>"></td>
+    <table class="table_details">
+      <tbody>
+        <tr hidden>
+          <td>Id</td>
+          <td>:</td>
+          <td>
+            <%= item._id %>
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>:</td>
+          <td>
+            <%= item.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>:</td>
+          <td>
+            <%= item.description %>
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>:</td>
+          <td>
+            <%= item.location.place %>
+          </td>
+        </tr>
+        <tr>
+          <td>Max Capacity</td>
+          <td>:</td>
+          <td>
+            <%= item.location.max %>
+          </td>
+        </tr>
+        <tr hidden>
+          <td>Limit Capacity (%)</td>
+          <td>:</td>
+          <td>
+            <%= item.location.limit %>
+          </td>
+        </tr>
+        <tr>
+          <td>Limited Capacity</td>
+          <td>:</td>
+          <td>
+            <%= Math.floor((item.location.max * item.location.limit)/100) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3><a href="/events">Show All Events</a></h3>
+</body>
+
+</html>

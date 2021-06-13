@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Create Location</title>
+</head>
+
+<body>
+  <form action="/admins/locations/create" method="POST">
+    <div class="form_create">
+      <label>Address: </label>
+      <input name="place" id="place" type="text" required />
+    </div>
+    <div class="form_create">
+      <label>Capacity: </label>
+      <input name="max" id="max" type="number" required />
+    </div>
+    <div class="form_create">
+      <label>Limit Capacity (%): </label>
+      <input name="limit" id="limit" type="number" min="0" max="100" required />
+    </div>
+    <div class="form_create">
+      <button type="submit">Save</button>
+    </div>
+  </form>
+</body>
+
+</html>

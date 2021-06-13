@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Promoter Details</title>
+  <link rel="stylesheet" href="/stylesheets/detailStyle.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Promoter Details</h1>
+    <table class="table_details">
+      <tbody>
+        <tr hidden>
+          <td>Id</td>
+          <td>:</td>
+          <td>
+            <%= item._id %>
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>:</td>
+          <td>
+            <%= item.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>:</td>
+          <td>
+            <%= item.email %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3><a href="/promoters">Show All Promoters</a></h3>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Create Event</title>
+</head>
+
+<body>
+    <form action="/admins/events/create" method="POST" enctype="multipart/form-data">
+        <div class="form_create">
+            <label>Name: </label>
+            <input name="name" id="name" type="text" placeholder="name" required>
+        </div>
+        <div class="form_create">
+            <label>Description: </label>
+            <input name="description" id="description" placeholder="...description..." type="text" spellcheck="true">
+        </div>
+        <div class="form_create">
+            <label>Address: </label>
+            <% if(items.length>0) { %>
+                <select id="place" name="location" required>
+                    <option value="" selected disabled hidden>Selecione localização</option>
+                    <% for(var i=0; i<items.length;i++) { %>
+                        <option value="<%= items[i]._id %>">
+                            <%= items[i].place %>
+                        </option>
+                        <% } %>
+                </select>
+                <% } else { %>
+                    <div>No Locations found.</div>
+                    <% } %>
+        </div>
+        <div class="form_create">
+            <label>Poster: </label>
+            <input type="file" id="poster" name="poster">
+        </div>
+        <div class="form_create">
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</body>
+
+</html>

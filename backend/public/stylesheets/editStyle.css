@@ -1,0 +1,41 @@
+body{
+    margin: 5%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+th, td{
+    width: 20px;
+    text-align: left;
+    padding-inline: 20px;
+}
+
+.table_details{
+    white-space: nowrap;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: auto;
+    width: fit-content;
+    display: block;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+button{
+    margin-top: 10px;
+}
+
+#button{
+    text-align: center;
+}
+
+.show {
+    color: orangered;
+    text-decoration: none;
+}
