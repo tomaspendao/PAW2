@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="app.component.css">
+    </head>
+    <body  (mouseenter)="setUserName()" (mouseleave)="setUserName()">
+        <header>
+            <div class="container">
+        
+                <img class="logo" src="http://localhost:3000/uploads/logo.png" />
+        
+                <nav>
+                    <ul class="main-menu">
+                        <li *ngIf="adminOrPromoter" ><a (click)="navigateToPromoters()">Promoters List</a></li>
+                        <li *ngIf="admin" ><a (click)="navigateToUsers()">Users List</a></li>
+                        <li><a (click)="navigateToLocations()">Locations List</a></li>
+                        <li><a (click)="navigateToEvents()">Event List</a></li>
+                        <li *ngIf="user"><a (click)="tickets()">Tickets</a></li>
+                        <li><a>Access</a>
+                            <ul class="sub-menu">
+                                <li><a (click)="login()">Login</a></li>
+                                <li><a (click)="logout()">Logout</a></li>
+                                <li><a (click)="register()">Register</a></li>
+                            </ul>
+                        </li>
+                        <li>{{userName}}</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <router-outlet></router-outlet>
+    </body>
+</html>
