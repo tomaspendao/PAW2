@@ -1,0 +1,23 @@
+.login-form>label, .login-form>input {
+    display: block;
+    width: 100%;
+    border-top: 0;
+    border-right: 0px;
+    border-left: 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+.login-form>input:focus {
+    outline: none;
+}
+
+.login-button {
+    display: block;
+    margin: 30px auto;
+    height: 3em;
+    width: 7em;
+}
+
+.text-center {
+    text-align: center;
+}

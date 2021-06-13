@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="location-edit.component.css">
+    </head>
+    <body>
+        <div class="card" *ngIf="location">
+            <h1>Location Edit</h1>
+            <div class="item-form">
+                <div class="txt-field">
+                    <input type="text" id="form-place" [(ngModel)]="location.place"/>
+                    <label for="form-place">Place</label>
+                </div>
+                <div class="txt-field">
+                    <input type="number" id="form-max" [(ngModel)]="location.max">
+                    <label for="form-max">Max Capacity</label>
+                </div>
+                <div class="txt-field">
+                    <input type="number" id="form-limit" [(ngModel)]="location.limit">
+                    <label for="form-limit">Limited Capacity</label>
+                </div>
+            
+                <button class="buttons center" (click)="edit()"> Edit </button>
+                <button class="buttons center" (click)="navigateToLocations()"> List Locations </button>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="location-add.component.css">
+    </head>
+    <body>
+        <div class="card">
+            <h1>Add a Location</h1>
+            <div class="item-form">
+                <div class="txt-field">
+                    <input required id="form-place" placeholder="Adress" [(ngModel)]="location.place" type="text">
+                    <label for="form-place">Place</label>
+                </div>
+                <div class="txt-field">
+                    <input required id="form-max" placeholder="Max Capacity" [(ngModel)]="location.max" type="number">
+                    <label for="form-max">Max Capacity</label>
+                </div>
+                <div class="txt-field">
+                    <input required id="form-limit" placeholder="Limited Capacity%" min="0" max="100" onkeydown="return false" onKeyPress="if(this.value.length==3 ) return false;" [(ngModel)]="location.limit" type="number" >
+                    <label for="form-limit">Limited Capacity (%)</label>
+                </div>
+                
+                <button class="buttons center" (click)="add()"> Add </button>
+                <button class="buttons center" (click)="navigateToLocations()"> List Locations </button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="register-promoter.component.css">
+    </head>
+    <body>
+        <div class="card">
+            <h1>Register</h1>
+            <div class="login-form">
+                <div class="txt-field">
+                    <input id="form-name" [(ngModel)]="name" type="text">
+                    <label for="form-name">Name</label>
+                </div>
+                <div class="txt-field">
+                    <input id="form-email" [(ngModel)]="email" type="text">
+                    <label for="form-email">Email</label>
+                </div>
+                <div class="txt-field">
+                    <input id="form-password" [(ngModel)]="password" type="password">
+                    <label for="form-password">Password</label>
+                </div>
+                <div class="txt-field-role">
+                    <input disabled id="form-role" placeholder="PROMOTER" value="PROMOTER" [(ngModel)]="role" type="text">
+                    <label for="form-role">Role</label>
+                </div>
+
+                <button class="buttons" (click)="register()"> Register </button> 
+                <div class="login">
+                    Already a Member?
+                    <button class="login-button" (click)="login()"> Login </button>
+                </div>
+                <button class="buttons center" (click)="back()"> Back </button> 
+            </div>
+        </div>
+    </body>
+</html>
+

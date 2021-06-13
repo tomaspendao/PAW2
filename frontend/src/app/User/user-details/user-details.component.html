@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="user-details.component.css">
+    </head>
+    <body>
+        <div class="card" *ngIf="user">
+            <h1>User Details</h1>
+            <div class="item-form">
+                <div class="txt-field">
+                    <input disabled id="form-place" placeholder="Name" [(ngModel)]="user.name" type="text">
+                    <label for="form-place">Name</label>
+                </div>
+                <div class="txt-field">
+                    <input disabled id="form-max" placeholder="Email" [(ngModel)]="user.email" type="text">
+                    <label for="form-max">Email</label>
+                </div>
+                <div class="txt-field">
+                    <input disabled id="form-limit" placeholder="Role" [(ngModel)]="user.role" type="text">
+                    <label for="form-limit">Role</label>
+                </div>
+                <button class="buttons" (click)="navigateToUsers()"> List Users </button>
+            </div>
+        </div>
+    </body>
+</html>

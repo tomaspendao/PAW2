@@ -1,0 +1,135 @@
+.card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+}
+
+.card h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.login-form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.txt-field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt-field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+
+.txt-field-role{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt-field-role input{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    height: 10px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt-field-role label{
+    position: absolute;
+    top: 0%;
+    left: 5px;
+    color: #1691d9;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.txt-field input:valid ~ label{
+    top: -5px;
+    color: #1691d9;
+}
+
+.buttons{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.login-button{
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #2691d9;
+    text-align: none;
+}
+
+.login-button:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width:670px){
+    .card{
+        position: absolute;
+        top: 80%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        min-width: 290px;
+        background: white;
+        border-radius: 10px;
+    }
+
+    .register-button{
+        min-width: 160px;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+}

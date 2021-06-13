@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="promoter-edit.component.css">
+    </head>
+    <body>
+        <div class="card" *ngIf="promoter">
+            <h1>Promoter Edit</h1>
+            <div class="item-form">
+                <div class="txt-field">
+                    <input id="form-place" placeholder="Name" [(ngModel)]="promoter.name" type="text">
+                    <label for="form-place">Name</label>
+                </div>
+                <div class="txt-field">
+                    <input id="form-max" placeholder="Email" [(ngModel)]="promoter.email" type="text">
+                    <label for="form-max">Email</label>
+                </div>
+                <div class="txt-field">
+                    <input disabled id="form-limit" placeholder="Role" [(ngModel)]="promoter.role" type="text">
+                    <label for="form-limit">Role</label>
+                </div>
+                <button class="buttons center" (click)="edit()"> Edit </button>
+                <button class="buttons center" (click)="navigateToPromoters()"> List Promoters </button>                
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

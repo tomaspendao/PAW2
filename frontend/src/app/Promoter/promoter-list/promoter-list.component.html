@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="promoter-list.component.css">
+    </head>
+    <body>
+        <div class="table" id="itemTable" *ngIf="promoters">
+            <h1 class="text-center">Promoters List</h1>
+            
+            <div class="row">
+                <div class="col-md-2 center">
+                </div>
+                <div class="col-md-2 center">
+                    Name
+                </div>
+                <div class="col-md-2 center"> 
+                    Email
+                </div>
+                <div hidden class="col-md-2 center"> 
+                    Role
+                </div>
+                <div class="col-md-2 center"></div>
+                <div class="col-md-2 center"></div>
+                <div class="col-md-2 center"></div>
+            </div>
+        
+            <div (mouseenter)="setRoleTemp(promoter._id)" (mouseleave)="setRoleTemp(promoter._id)" class="row" *ngFor="let promoter of promoters; let i=index;">
+                <div class="col-md-2 center">
+                    {{i+1}}
+                </div>
+                <div class="col-md-2 center">
+                    {{promoter.name}}
+                </div>
+                <div class="col-md-2 center">
+                    {{promoter.email}}
+                </div>
+                <div hidden class="col-md-2 center">
+                    {{promoter.role}}
+                </div>
+                <div class="col-md-2 center">
+                    <button class="view-button" (click)="view(promoter._id)">
+                        View Details
+                    </button>
+                </div>
+                <div *ngIf="promoteri" class="col-md-2 center">
+                    <button class="edit-button" (click)="editPromoter(promoter._id)">
+                        Edit
+                    </button>
+                </div>
+                <div *ngIf="adminOrPromoter" class="col-md-2 center">
+                    <button class="delete-button" (click)="delete(promoter._id)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+            
+            <div *ngIf="adminOrPromoter" class="new-promoter">
+                <button (click)="createPromoter()"> Register Promoter </button>    
+            </div>
+        </div>
+    </body>
+</html>

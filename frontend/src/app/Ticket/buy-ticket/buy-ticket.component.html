@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="buy-ticket.component.css">
+    </head>
+    <body>
+        <div class="card">
+            <h1>Add a Ticket</h1>
+            <div class="item-form">
+                <div class="file-field">
+                    <input class="center" id="file" name="file" type='file' [(ngModel)]="ticket.file" (change)="onFileSelected($event)" >
+                    <label for="file">File</label>
+                </div>
+                
+                <button class="buttons center" (click)="buy()"> Add </button>
+                <button class="buttons center" (click)="navigateToEvents()"> List Events </button>
+            </div>
+        </div>
+    </body>
+</html>
+     

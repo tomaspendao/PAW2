@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="user-list.component.css">
+    </head>
+    <body>
+        <div class="table" id="itemTable" *ngIf="users">
+            <h1 class="text-center">Users List</h1>
+        
+            <div class="row">
+                <div class="col-md-2 center">
+                </div>
+                <div class="col-md-2 center">
+                    Name
+                </div>
+                <div class="col-md-2 center"> 
+                    Email
+                </div>
+                <div hidden class="col-md-2 center"> 
+                    Role
+                </div>
+                <div class="col-md-2 center"></div>
+                <div class="col-md-2 center"></div>
+                <div class="col-md-2 center"></div>
+            </div>
+        
+            <div class="row" *ngFor="let user of users; let i=index;">
+                <div class="col-md-2 center">
+                    {{i+1}}
+                </div>
+                <div class="col-md-2 center">
+                    {{user.name}}
+                </div>
+                <div class="col-md-2 center">
+                    {{user.email}}
+                </div>
+                <div hidden class="col-md-2 center">
+                    {{user.role}}
+                </div>
+                <div class="col-md-2 center">
+                    <button class="view-button" title="view product" (click)="view(user._id)">
+                        View Details
+                    </button>
+                </div>
+                <div class="col-md-2 center">
+                    <button class="edit-button" title="edit product" (click)="editUser(user._id)">
+                        Edit
+                    </button>
+                </div>
+                <div class="col-md-2 center">
+                    <button class="delete-button" title="delete product" (click)="delete(user._id)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        
+            <div class="new-user">
+                <button class="item-button text-center" (click)="createUser()">Register User</button>
+            </div>   
+        </div>
+    </body>
+</html>

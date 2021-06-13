@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="ticket-list.component.css">
+    </head>
+    <body>
+        <div class="table" id="itemTable" *ngIf="tickets">
+            <h1 class="text-center">Ticket List</h1>
+
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">Event Name</div>
+                <div class="col-md-2">Covid Test</div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <div class="row" *ngFor="let ticket of tickets; let i=index">
+                <div class="col-md-2 center">
+                    {{i+1}}
+                </div>
+                <div class="col-md-2">
+                    {{ticket.eventId.name}}
+                </div>
+                <div class="col-md-2"><!--<img src="{{ticket.file}}">-->
+                    {{ticket.file.substring(41)}}
+                </div>
+                <div class="col-md-2">
+                    <button class="view-button" title="view event" (click)="delete(ticket._id)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+   

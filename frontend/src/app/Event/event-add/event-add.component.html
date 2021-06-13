@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="event-add.component.css">
+    </head>
+    <body>
+        <div class="card">
+            <h1>Add a Event</h1>
+            <div class="item-form">
+                <div class="txt-field">
+                    <input id="name" placeholder="name" [(ngModel)]="event.name" type="text" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="txt-field">
+                    <input id="description" placeholder="description" [(ngModel)]="event.description" type="text" required>
+                    <label for="description">Description</label>
+                </div>
+                <div class="txt-field">
+                    <input id="price" [(ngModel)]="event.price" type="number" step='0.01' value='0.00' placeholder='0.00' required>
+                    <label for="price">Price</label>
+                </div>
+                <div class="slc-field" *ngIf="locations">     
+                    <select id="place" name="location" required [(ngModel)]="event.location" required>
+                        <option value="" selected disabled >Select Location</option>
+                        <option value="{{location._id}}" *ngFor="let location of locations;let i=index;">{{location.place}}</option>
+                    </select>
+                    <label for="place">Location</label>
+                </div>
+                <h1>Poster</h1>
+                <input class="center" id="poster" name="poster" type='file' [(ngModel)]="event.poster" (change)="onFileSelected($event)" (change)="readUrl($event)"><img class="center" [src]="url">
+                <button class="buttons center" (click)="add()"> Add </button>
+                <button class="buttons center" (click)="navigateToEvents()"> List Events </button>
+            </div>
+        </div>
+    </body>
+</html>

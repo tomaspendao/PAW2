@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="event-list.component.css">
+    </head>
+    <body (mouseenter)="setRoleTemp()" (mouseleave)="setRoleTemp()">
+        <div class="table" id="itemTable" *ngIf="events">
+            <h1 class="text-center">Event List</h1>
+        
+            <div class="row">
+                <div class="col-md center"></div>
+                <div class="col-md center">
+                    Name
+                </div>
+                <div class="col-md center">
+                    Description
+                </div>
+                <div class="col-md center"> 
+                    Location
+                </div>
+                <div class="col-md center"></div>
+                <div class="col-md center"></div>
+                <div class="col-md center"></div>
+                <div class="col-md center"></div>
+            </div>
+        
+            <div class="row" *ngFor="let event of events; let i=index;">
+                <div class="col-md center">
+                    {{i+1}}
+                </div>
+                <div class="col-md center">
+                    {{event.name}}
+                </div>
+                <div class="col-md center">
+                    {{event.description}}
+                </div>
+                <div class="col-md center">
+                    {{event.location.place}}
+                </div>
+                <div class="col-md center">
+                    <button class="view-button" title="view event" (click)="view(event._id)">
+                        View Details
+                    </button>
+                </div>
+                <div *ngIf="adminOrPromoter" class="col-md center">
+                    <button class="edit-button" title="edit event" (click)="editEvent(event._id)">
+                        Edit
+                    </button>
+                </div>
+                <div *ngIf="adminOrPromoter" class="col-md center">
+                    <button class="delete-button" title="delete event" (click)="delete(event._id)">
+                        Delete
+                    </button>
+                </div>
+                <div *ngIf="user" class="col-md center">
+                    <button class="buy-button" title="buy event" (click)="buy(event._id)">
+                        Buy
+                    </button>
+                </div>
+            </div>
+        
+            <div *ngIf="adminOrPromoter" class="new-event">
+                <button (click)="createEvent()"> Add Event </button>
+            </div>
+
+        </div>
+    </body>
+</html>

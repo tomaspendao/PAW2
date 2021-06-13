@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link href="login.component.css">
+    </head>
+    <body>
+        <div class="login-card">
+            <h1 class="text-center">Login</h1>
+            <div class="login-form">
+                <div class="txt-field">
+                    <input id="form-email" [(ngModel)]="email" type="text">
+                    <span></span>
+                    <label for="form-email">Email</label>
+                </div>
+                <div class="txt-field">
+                    <input [(ngModel)]="password" type="password">
+                    <span></span>
+                    <label>Password</label>
+                </div>            
+        
+                <button class="login-button" (click)="login()"> Login </button>
+                <div class="register">
+                    Not a Member?
+                    <button class="register-button" (click)="register()"> Register </button> 
+                </div>
+                
+            </div>
+        </div>
+    </body>
+    
+</html>
+

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="register.component.css">
+    </head>
+    <body>
+        <div class="login-card">
+            <h1>Register</h1>
+            <div class="login-form">
+                <div class="txt-field">
+                    <input id="form-name" [(ngModel)]="name" type="text">
+                    <label for="form-name">Name</label>
+                </div>
+                <div class="txt-field">
+                    <input id="form-email" [(ngModel)]="email" type="text">
+                    <label for="form-email">Email</label>
+                </div>
+                <div class="txt-field">
+                    <input id="form-password" [(ngModel)]="password" type="password">
+                    <label for="form-password">Password</label>
+                </div>
+                <div class="rad-field">
+                    <input type="radio" name="role" value="USER" [(ngModel)]="role">
+                    <label for="user">User</label>
+                </div>
+                <div class="rad-field">
+                    <input type="radio" name="role" value="PROMOTER" [(ngModel)]="role">
+                    <label for="user">Promoter</label>
+                </div>
+                <div class="rad-field">
+                    <input type="radio" name="role" value="ADMIN" [(ngModel)]="role">
+                    <label for="user">Admin</label>
+                </div>
+
+                <button class="register-button" (click)="register()"> Register </button> 
+                <div class="login">
+                    Already a Member?
+                    <button class="login-button" (click)="login()"> Login </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

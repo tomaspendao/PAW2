@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="event-details.component.css">
+    </head>
+    <body>
+        <nav>
+            <div class="card" *ngIf="event">
+                <h1>Event Details</h1>
+                <div class="item-form">
+                    <div class="txt-field">
+                        <input disabled id="form-name" [(ngModel)]="event.name" type="text">
+                        <label for="form-name">Name</label>
+                    </div>
+                    <div class="txt-field">
+                        <input disabled id="form-description" [(ngModel)]="event.description" type="text">
+                        <label for="form-description">Description</label>
+                    </div>
+                    <div class="txt-field">
+                        <input disabled id="form-location" [(ngModel)]="event.location.place" type="text">
+                        <label for="form-location">Location</label>
+                    </div>
+                    <div class="txt-field">
+                        <input disabled id="form-capacity" [(ngModel)]="event.location.limit" type="number">
+                        <label for="form-capacity">Capacity</label>
+                    </div>
+                    <div class="txt-field">
+                        <input disabled id="form-price"  [(ngModel)]="event.price" type="number">
+                        <label for="form-price">Price</label>
+                    </div>
+                </div>
+                
+                <h1>Poster</h1>
+                <img class="center" src="{{event.poster}}" type="image">
+                <button class="buttons center" (click)="navigateToEvents()"> List Events </button>
+            </div>
+        </nav>
+    </body>
+</html>

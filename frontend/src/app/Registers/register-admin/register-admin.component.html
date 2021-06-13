@@ -1,0 +1,24 @@
+<div class="login card">
+    <h1 class="text-center">Register</h1>
+    <div class="login-form">
+        <label for="form-email">Name</label>
+        <input required id="form-email" placeholder="Name" [(ngModel)]="name" type="text">
+        <label for="form-email">Email</label>
+        <input required id="form-email" placeholder="Email" [(ngModel)]="email" type="text">
+        <label for="form-password">Password</label>
+        <input required id="form-password" placeholder="Password" [(ngModel)]="password" type="password">
+        <label for="form-role">Role</label>
+        <input disabled id="form-role" placeholder="ADMIN" value="ADMIN" [(ngModel)]="role" type="text">
+
+        <!--<input type="radio" id="user" name="role" value="USER" [(ngModel)]="role">
+        <label for="user">User</label><br>
+        <input type="radio" id="promoter" name="role" value="PROMOTER" [(ngModel)]="role"> 
+        <label for="promoter">Promoter</label><br>
+        <input type="radio" id="admin" name="role" value="ADMIN" [(ngModel)]="role">
+        <label for="admin">Admin</label>-->
+
+        <button class="login-button" (click)="register()"> Register </button>
+        <button class="login-button" (click)="login()"> Login </button>
+    </div>
+</div>
+<button class="item-button text-center" (click)="back()">back</button>
